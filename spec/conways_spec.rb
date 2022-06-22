@@ -5,15 +5,19 @@ require_relative '../conways.rb'
 # Any live cell with more than three live neighbours dies
 # Any dead cell with exactly three live neighbours becomes a live cell
 
-
-describe 'conways_cell' do
-    it 'has a cell' do
-        expect(conways_cell).to eq(true)
+describe 'Game' do
+    game = Game.new
+    it 'returns an array' do
+        expect(game.grid.class).to be Array
     end
-end
-
-describe 'board' do
-   it 'has width' do
-    expect(width).to be >= 3
-   end
+    it 'returns an array with width 3' do
+        expect(game.grid[0].length).to eq 3
+    end
+    it 'returns an array with height 3' do
+        expect(game.grid.length).to eq 3
+    end
+    it 'returns an array that contains only 1s and 0s' do
+        expect(game.grid.flatten).to include(0 || 1)
+    end
+        
 end
